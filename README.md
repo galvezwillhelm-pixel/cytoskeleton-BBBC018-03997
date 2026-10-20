@@ -95,9 +95,6 @@ A single fixed fluorescence image captures cells at only one point in time. It c
 data/
 └── fiji_results.csv
 
-scripts/
-└── analyze_cells.R
-
 results/
 └── cell_summary.csv
 
