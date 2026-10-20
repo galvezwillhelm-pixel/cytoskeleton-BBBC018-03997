@@ -18,13 +18,13 @@ The images are fluorescence microscopy images of fixed HT29 human colon-cancer c
 
 ## Selected Phenotype
 
-I selected **Actin dots** based on the visible dot-like actin staining pattern in the selected image field. The actin channel shows distinct bright features distributed within and around the cells.
+I selected **Actin dots** based on the visible dot-like actin staining pattern in the selected image field. The actin image shows distinct bright features distributed within and around the cells.
 
 ## Fiji Analysis
 
 The `03997-actin.DIB` image was opened in Fiji together with the matching `03997-DNA.DIB` image.
 
-Measurements were set to include:
+The following measurements were selected in Fiji:
 
 - Area
 - Mean gray value
@@ -39,15 +39,13 @@ The Fiji measurements were saved as:
 
 `data/fiji_results.csv`
 
-## R Analysis
+An annotated image showing the measured cells is included in:
 
-The Fiji measurements were analyzed using the R script:
+`figures/measured_cells.png`
 
-`scripts/analyze_cells.R`
+## Numerical Results
 
-The analysis calculated the mean cell area, mean circularity, mean aspect ratio, and mean actin fluorescence intensity.
-
-### Summary of Results
+The five measured cells produced the following summary:
 
 | Measurement | Result |
 |---|---:|
@@ -99,6 +97,6 @@ results/
 └── cell_summary.csv
 
 figures/
+├── measured_cells.png
 ├── area_vs_circularity.png
 └── actin_intensity.png
----- measured_cells.jpg
