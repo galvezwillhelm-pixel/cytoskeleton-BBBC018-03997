@@ -1,2 +1,106 @@
-# cytoskeleton-BBBC018-03997
-Cytoskeleton and cell morphology analysis of BBBC018 image field 03997 using Fiji and R.
+# Cytoskeleton and Cell Morphology – BBBC018
+
+## Student Information
+
+- **Student ID:** WILLHELM WIEN GALVEZ
+- **Chosen phenotype:** Actin dots
+- **Image-field ID:** 03997
+- **Actin image:** `03997-actin.DIB`
+- **DNA image:** `03997-DNA.DIB`
+
+## Dataset
+
+This activity used image set **BBBC018v1** from the Broad Bioimage Benchmark Collection (BBBC).
+
+Dataset: https://bbbc.broadinstitute.org/BBBC018
+
+The images are fluorescence microscopy images of fixed HT29 human colon-cancer cells. The actin channel was used to observe F-actin organization and cell morphology, while the DNA channel was used to identify nuclei and help distinguish neighboring cells.
+
+## Selected Phenotype
+
+I selected **Actin dots** based on the visible dot-like actin staining pattern in the selected image field. The actin channel shows distinct bright features distributed within and around the cells.
+
+## Fiji Analysis
+
+The `03997-actin.DIB` image was opened in Fiji together with the matching `03997-DNA.DIB` image.
+
+Measurements were set to include:
+
+- Area
+- Mean gray value
+- Shape descriptors
+- Circularity
+- Aspect ratio
+- Display label
+
+Five clearly visible cells were selected using the Freehand Selection tool and measured using Fiji's ROI Manager.
+
+The Fiji measurements were saved as:
+
+`data/fiji_results.csv`
+
+## R Analysis
+
+The Fiji measurements were analyzed using the R script:
+
+`scripts/analyze_cells.R`
+
+The analysis calculated the mean cell area, mean circularity, mean aspect ratio, and mean actin fluorescence intensity.
+
+### Summary of Results
+
+| Measurement | Result |
+|---|---:|
+| Phenotype | Actin dots |
+| Image ID | 03997 |
+| Cells measured | 5 |
+| Mean cell area | 1775.4 pixels² |
+| Mean circularity | 0.7632 |
+| Mean aspect ratio | 1.331 |
+| Mean actin signal | 899.6992 |
+
+## Figure 1: Area vs. Circularity
+
+![Area vs Circularity](figures/area_vs_circularity.png)
+
+This figure shows the relationship between cell area and circularity for the five measured cells.
+
+## Figure 2: Actin Intensity
+
+![Actin Intensity](figures/actin_intensity.png)
+
+This figure shows the mean actin fluorescence intensity measured for each of the five cells.
+
+## Questions and Answers
+
+### 1. Which specific phenotype did you choose, and what visible features support that choice?
+
+I chose **Actin dots** because the actin image shows distinct bright dot-like features in the F-actin staining pattern. These visible features support the classification of the selected field as an Actin dots phenotype.
+
+### 2. Were your five cells mostly round or elongated? Refer to your circularity and aspect-ratio results.
+
+The five cells were mostly round rather than strongly elongated. The mean circularity was **0.7632**, while the mean aspect ratio was **1.331**. One cell had a higher aspect ratio of 1.699, showing some variation in cell shape.
+
+### 3. What role does actin play in maintaining cell shape and in cell movement (Karp Chapter 9)?
+
+Actin filaments are an important part of the cytoskeleton and help maintain cell shape by providing structural support, especially near the cell cortex. Actin also works with motor proteins and other cytoskeletal components to produce changes in cell shape and contribute to cell movement.
+
+### 4. Why can a single fixed fluorescence image NOT show how fast a cell moves?
+
+A single fixed fluorescence image captures cells at only one point in time. It can show cell shape and actin organization, but it cannot determine how fast a cell moves because movement requires observations over time, such as a time-lapse sequence.
+
+## Generated Files
+
+```text
+data/
+└── fiji_results.csv
+
+scripts/
+└── analyze_cells.R
+
+results/
+└── cell_summary.csv
+
+figures/
+├── area_vs_circularity.png
+└── actin_intensity.png
